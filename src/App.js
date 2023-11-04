@@ -10,7 +10,12 @@ const App = () => {
     return React.createElement(
         "div",
         {},
-        React.createElement("h1", {}, "Adopt me!")
+        [
+            React.createElement("h1", {}, "Adopt me!"),
+            React.createElement(Pet),
+            React.createElement(Pet),
+            React.createElement(Pet),
+        ]
     )            
 };
 
