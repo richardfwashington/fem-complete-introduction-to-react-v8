@@ -11,7 +11,7 @@ const SearchParams = () => {
 
   useEffect(() => {
     requestPets();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function requestPets() {
     const res = await fetch(
@@ -21,11 +21,16 @@ const SearchParams = () => {
     setPets(json.pets);
   }
 
-  const breeds = ["poodle"];
+  const breeds = ["poodle", "Dachshund"];
 
   return (
     <div className="search-params">
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          requestPets();
+        }}
+      >
         <label htmlFor="location">
           Location
           <input
