@@ -16,6 +16,7 @@ const Results = ({ pets }) => {
             key={pet.id}
           />
           // Could also use the spread operator to ...pet to set all properties
+          // But we don't want to as location is two things.
         ))
       )}
     </div>
