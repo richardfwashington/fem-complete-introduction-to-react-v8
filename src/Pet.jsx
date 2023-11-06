@@ -1,5 +1,4 @@
 import React from "react";
-import { StrictMode } from "react/cjs/react.production.min";
 
 const Pet = ({ name, animal, breed, images, location, id }) => {
   let hero = "https://pets-images.dev-apis.com/pets/none.jpg";
@@ -9,19 +8,17 @@ const Pet = ({ name, animal, breed, images, location, id }) => {
   }
 
   return (
-    <StrictMode>
-      <a href={`/details/${id}`} className="pet">
-        <div className="image-container">
-          <img src={hero} alt={name} />
-        </div>
-        <div className="info">
-          <h1>{name}</h1>
-          <h2>
-            {animal} - {breed} - {location}
-          </h2>
-        </div>
-      </a>
-    </StrictMode>
+    <a href={`/details/${id}`} className="pet">
+      <div className="image-container">
+        <img src={hero} alt={name} />
+      </div>
+      <div className="info">
+        <h1>{name}</h1>
+        <h2>
+          {animal} - {breed} - {location}
+        </h2>
+      </div>
+    </a>
   );
 };
 
