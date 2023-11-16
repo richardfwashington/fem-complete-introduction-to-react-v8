@@ -22,6 +22,7 @@ class Carousel extends Component {
   };
 
   render() {
+    //throw new Error("fail"); // Test for the ErrorBoundary
     const { active } = this.state;
     const { images } = this.props;
 
