@@ -9,6 +9,18 @@ class Carousel extends Component {
     images: ["https://pets-images.dev-apis.com/pets/none.jpg"],
   };
 
+  // Arrow function to get the right scope for this
+  // Without it is undefined
+  handleIndexClick = (e) => {
+    this.setState({
+      // Unary plus + to turn the DOM string to a number (I don't like this!)
+      // target = the element
+      // dataset = any data- elements
+      // index = data-index
+      active: +e.target.dataset.index,
+    });
+  };
+
   render() {
     const { active } = this.state;
     const { images } = this.props;
@@ -18,7 +30,10 @@ class Carousel extends Component {
         <img src={images[active]} alt="animal hero" />
         <div className="carousel-smaller">
           {images.map((photo, index) => (
+            // eslint-disable-next-line
             <img
+              onClick={this.handleIndexClick}
+              data-index={index}
               key={photo}
               src={photo}
               className={index === active ? "active" : ""}
